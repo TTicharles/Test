@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+	<div class="page-header">
+	
+		<div class="list-group">
+			<a class="list-group-item active">
+			    <h4 class="list-group-item-heading">Duty-list</h4>
+			</a>
+	  
+	 	 </div>
+		 
+	</div>
+</div>
+<div class="container">
+	<a class="btn btn-danger" href="{{ url_for ('update_user') }}">update</a><a class="btn btn-success" href="{{ url_for ('add_category') }}">Add Category</a>
+</div>
+<div class="container">
+  		<table class=" table table-hover">
+  			<thead>
+  				<th class="active">ID</th>
+  				<th class="active">Username</th>
+  				<th class="active">password</th>
+  				<th class="active">email</th>
+  				<th class="active">create_time</th>
+  			</thead>
+  			<tbody>
+  				{% if user_list %}
+  				{% for user in user_list %}
+				<tr>
+				  <td class="active">{{user.user_id}}</td>
+				  <td class="success">{{user.username}}</td>
+				  <td class="warning">{{user.password}}</td>
+				  <td class="danger">{{user.email}}</td>
+				  <td class="info">{{user.create_time}}</td>
+				</tr>
+				 {% endfor %}
+				{% endif %}
+  			</tbody>
+
+		</table>
+</div>
+{% endblock %}
